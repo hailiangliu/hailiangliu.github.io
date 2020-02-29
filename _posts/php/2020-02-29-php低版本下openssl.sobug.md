@@ -1,6 +1,6 @@
 ---
 layout: post
-title: template page
+title: php低版本 openssl.so的问题
 categories: [php, 踩坑]
 description: some word here
 keywords: php, openssl
