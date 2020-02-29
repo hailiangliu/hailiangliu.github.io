@@ -1,19 +1,13 @@
-- name: Software Engineer Keywords
+- name: Java
   keywords:
-      - Java
-      - C++
-      - Python
-      - Design Patterns
+      - Struts
+      - SpringMVC
+      - Hibernate
+      - MyBatis
 
-- name: Mobile Developer Keywords
+- name: Php
   keywords:
-      - Android
-      - Reverse Engineering
+      - AP(yaf)
+      - 搬运工
 
-- name: Windows Developer Keywords
-  keywords:
-      - Win32 SDK
-      - DuiLib
-      - WTL
-      - COM
-      - WinDbg
+
