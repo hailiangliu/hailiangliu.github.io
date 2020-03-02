@@ -1,0 +1,19 @@
+---
+layout: post
+title: linux常用命令
+categories: [linux, 常用命令]
+description: some word here
+keywords: linux, 
+---
+
+# strings 命令
+strings libphp7.so | grep \/php  查看依赖的php信息
+
+# ldd 命令
+##查看编译依赖so 
+  ldd libphp7.so 
+  ldd httpd
+  ldd php
+  ldd xxx.so
+  (ldconfig root用户执行
+##
