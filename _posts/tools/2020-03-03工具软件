@@ -1,0 +1,10 @@
+---
+layout: post
+title: 工具
+categories: [linux, 工具]
+description: some word here
+keywords: linux, 工具
+---
+
+# linux samba
+文件共享服务，可以在本地映射linux磁盘，配合idea、phpstorm的deployment（Tool->Deployment），免去各种scp或者rz的时间
