@@ -1,0 +1,80 @@
+---
+layout: post
+title: 工具
+categories: [linux, 工具]
+description: some word here
+keywords: linux, 工具
+---
+
+# linux samba
+文件共享服务，可以在本地映射linux磁盘，配合idea、phpstorm的deployment（Tool->Deployment），免去各种scp或者rz的时间
+
+**以下操作均在Linux开发机上进行**
+
+**1、创建work帐号并修改密码**
+
+useradd work
+
+passwd work
+
+**2、安装samba**
+
+yum install samba （需要以root权限安装）
+
+**3、配置 **
+
+vi /etc/samba/smb.conf
+
+在[global]下面加入以下代码unix charset = UTF-8dos charset = CP932 
+
+在[homes]前添加 [work]comment = work Directoriespath=/home/workbrowseable = yeswritable = yesvalid users=work
+
+
+
+smbpasswd设置密码，一会连接时需要用到
+
+smbpasswd -a work
+
+启动smb服务并设置其为开机自启项
+
+service smb restart
+
+chkconfig smb on
+
+赋予相关目录权限
+
+chmod -R 777 /home/work
+
+***4、访问samba（替换hostname为主机名）***
+
+在Mac系统中：Finder --> 前往 --> 连接服务器，在服务器地址一栏输入[smb://hostname/work](smb://hostname/work)（hostname是开发机的域名）
+
+接下来输入用户名work和smbpasswd命令设置的密码即可
+
+
+
+**补充：**
+
+如果遇到Mac连接不上服务器的问题，按照以下方式解决：
+
+1、输入命令：service smb status 查看samba服务的状态
+
+如果显示：smbd dead but pid file exist
+
+2、如果是上述状态，执行命令：rm /var/run/smbd.pid 删除pid文件
+
+3、重启服务：service smb restart
+
+4、ok，再次打开Finder连接，即可连接成功。
+
+## .DS_Store安全隐患
+
+由于Finder自带的.DS_Store包含了太多信息，如果在服务器产生.DS_Store会造成安全隐患。如果没有特殊配置，你用Finder管理远程的文件夹会自动产生.DS_Store。
+
+在云端检查你的共享文件夹，如果发现.DS_Store，立即删除！
+
+打开Mac的Terminal，执行以下命令：
+
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+
+ok，之后再使用samba访问开发机共享文件，就不会生成.DS_Store文件了。

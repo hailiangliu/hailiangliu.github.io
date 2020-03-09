@@ -8,6 +8,10 @@ keywords: php
 
 ## Q & A
 
+[TOC]
+
+
+
 ### 如何查看 php.ini 文件路径？
 
 新建一个 test.php 文件，内容如下：
