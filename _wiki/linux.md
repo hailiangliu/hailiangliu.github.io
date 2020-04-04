@@ -6,6 +6,8 @@ description: 类 Unix 系统下的一些常用命令和用法。
 keywords: Linux
 ---
 
+[toc]
+
 类 Unix 系统下的一些常用命令和用法。
 
 ## 实用命令
@@ -61,3 +63,33 @@ lsof -c Vim
 ```
 
 注意程序名区分大小写。
+
+#### curl
+
+```shell
+host=127.0.0.1
+port=8080
+Basic_Auth=`printf name:password |base64`
+curl -X POST http://$host:$port/xxxservice/xxx.action \
+  -H "Authorization: Basic $Basic_Auth" \
+  -H 'Content-Type: application/json;charset=utf-8' \
+  -d '{"key":value}' -vv
+```
+
+# 常用脚本
+
+### 发邮件
+
+```powershell
+rm -rf data
+echo -e "<table border=2 style='border-style: dotted;border-color: #9999FF;'><tr bgcolor='#99FF99'><th>test</th></tr>" > data
+startTime=`date -d '-1 day' +%Y-%m-%d' '00:00:00`
+endTime=`date +%Y-%m-%d' '00:00:00`
+/home/mysql -N -A -h127.0.0.1 -P3306 -uuname -ppwd my_database -e "set names utf8;select 1 from my_talbe where 
+update_time>='${startTime}' and update_time <='${endTime}'; " | awk -F '\t' '{print "<tr><td>"$1"</td><td>"</tr>";}' >> data
+echo "</table>" >> data
+title="test ["`date -d"yesterday" +"%m-%d"`"]\nContent-Type: text/html"
+title_gbk=`echo -e ${title} | iconv -f utf-8 -t gbk`
+mail -s "${title_gbk}" "" <  data 
+```
+
