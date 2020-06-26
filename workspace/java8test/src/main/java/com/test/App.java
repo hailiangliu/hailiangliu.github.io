@@ -1,10 +1,24 @@
 package com.test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Hello world!
  */
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        char c = '"';
+        String s = "中2";
+
+
+        System.out.println( s.getBytes().length); // 4  汉字3
+        System.out.println( String.valueOf(c).getBytes().length);
+        System.out.println( 1 << 30);
+        System.out.println( Math.pow(2,30));
+
+
+        HashMap hashMap = new HashMap();
+
     }
 }
