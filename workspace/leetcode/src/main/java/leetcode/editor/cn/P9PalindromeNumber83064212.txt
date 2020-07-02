@@ -1,0 +1,15 @@
+class Solution {
+    public boolean isPalindrome(int x) {
+            char[] cs = String.valueOf(x).toCharArray();
+            for (int i = 0; i < cs.length / 2; i++) {
+                char current = cs[i];
+                char last = cs[cs.length - i -1];
+                if (current != last) {
+                    return false;
+                }
+            }
+            return true;
+    }
+}
+//runtime:12 ms
+//memory:38.8 MB
