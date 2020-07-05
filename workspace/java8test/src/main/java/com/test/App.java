@@ -1,6 +1,7 @@
 package com.test;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.Lock;
@@ -29,5 +30,11 @@ public class App {
 
         lock.tryLock();
         lock.lock();
+        HashSet hashSet = new HashSet();
+        ThreadLocal local = new ThreadLocal();
+        local.set("sdf");
+        local.remove();
+
+
     }
 }
