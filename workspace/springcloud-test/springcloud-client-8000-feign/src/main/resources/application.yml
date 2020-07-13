@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: demo-client
+
+server:
+  port: 8000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
+    register-with-eureka: false # client不需要注册
+
+# 配置自定义信息，在eureka 控制台的actuator返回json
+info:
+  app.name: demo-client
+  company.name: abcd
+  zidingyi: zidingyi
+
