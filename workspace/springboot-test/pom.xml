@@ -36,6 +36,18 @@
 	</properties>
 
 	<dependencies>
+		<!-- 引入自己写的starter 做测试 -->
+		<dependency>
+			<groupId>com.test.starter.mystarter</groupId>
+			<artifactId>mystarter-spring-boot-start</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>

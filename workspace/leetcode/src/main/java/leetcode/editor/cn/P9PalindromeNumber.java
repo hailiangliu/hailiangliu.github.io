@@ -71,7 +71,7 @@ public class P9PalindromeNumber {
 //            char[] cs = String.valueOf(x).toCharArray();
 //            for (int i = 0; i < cs.length / 2; i++) {
 //                char current = cs[i];
-//                char last = cs[cs.length - i -1];
+//                char last = cs[cs.length - i -1];p盘
 //                if (current != last) {
 //                    return false;
 //                }
