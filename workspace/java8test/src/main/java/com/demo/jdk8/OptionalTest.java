@@ -1,6 +1,12 @@
 package com.demo.jdk8;
 
+import cn.hutool.core.lang.Pair;
+
+import java.sql.SQLOutput;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 
 public class OptionalTest {
     public static void main(String[] args) {
@@ -20,6 +26,11 @@ public class OptionalTest {
         // Optional内为空的话，填充一个(使用传入的Suppler生成
         System.out.println(optional1.orElseGet(()->"niihao"));
 
+
+        // 测试
+        Map<String, Map> map = null;
+        Optional<Map> result = Optional.ofNullable(map);
+        Map map1 = result.map(Function.identity()).orElseGet(HashMap::new); //如果有值则返回自己，无则新生成一个hashmap
 
     }
 }
