@@ -33,7 +33,7 @@ keywords: Spring, JAVA, Springboot
 
 ```
 
-##1.2 spring 常用的几个注解
+## 1.2 spring 常用的几个注解
 
  initbean 后执行
 
